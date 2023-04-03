@@ -1,0 +1,21 @@
+# Init
+echo "GoPro Rename Utility"
+
+# Confirmation
+echo "Please confirm that you are in a directory that only contains unprocessed GoPro video files!"
+echo "y/N?"
+read confirm
+
+# Operation
+if [ "$confirm" = y ]
+then 
+  echo "Renaming files...!"
+    for f in G*.MP4; do
+    chap=${f:2:2}
+    vid=${f:4:4}
+    mv "$f" "GoPro-$vid-$chap.mp4"
+    done
+fi
+
+# Exit
+echo "Finished."
